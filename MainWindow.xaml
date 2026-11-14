@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SizovVoins9"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Воины" Height="470" Width="320" MinHeight="470" MinWidth="320">
     <Grid>
-        
+        <Image 
+            Margin="50,20,50,191" 
+            Source=""
+            x:Name="MyImage"/>
+        <Label 
+            Margin="96,248,96,158"
+            Content="Воин: "
+            x:Name="voin"/>
+        <Label 
+            Margin="96,281,96,124"
+            Content="HP: "
+            x:Name="HP"/>
+        <Button Content="нанести урон"  Margin="96,315,96,81" Click="DamageClick"/>
+
+
     </Grid>
 </Window>

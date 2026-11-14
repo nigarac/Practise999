@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SizovVoins9.Classes;
 
 namespace SizovVoins9
 {
@@ -23,6 +13,42 @@ namespace SizovVoins9
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        LightKnight lightKnight = new LightKnight(100);
+        HeavyKnight heavyKnight = new HeavyKnight(100);
+        private void DamageClick(object sender, RoutedEventArgs e)
+        {
+            Random rnd = new Random();
+            if (rnd.Next(2) == 0)
+            {
+                lightKnight.getAttack(12);
+                if (lightKnight.HealthPoint <= 0) lightKnight.HealthPoint = 0;
+
+                MyImage.Source = new BitmapImage(new Uri(@"/Images/light.jpg", UriKind.Relative));
+                voin.Content = "Воин: лёгкий";
+                HP.Content = $"HP: {lightKnight.HealthPoint}";
+                
+                if (lightKnight.HealthPoint == 0) lightKnight.HealthPoint = 100;
+            }
+            else
+            {
+                heavyKnight.getAttack(12);
+                if (heavyKnight.HealthPoint <= 0) heavyKnight.HealthPoint = 0;
+
+                MyImage.Source = new BitmapImage(new Uri(@"/Images/heavy.jfif", UriKind.Relative));
+                voin.Content = "Воин: тяжелый";
+                HP.Content = $"HP: {heavyKnight.HealthPoint}";
+
+                if (heavyKnight.HealthPoint == 0) heavyKnight.HealthPoint = 100;
+
+
+            }
+
+        }
+        public void reversePhoto()
+        {
+            
         }
     }
 }
